@@ -54,6 +54,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'myproject.middleware.ReferMiddleware',
 )
 
 ROOT_URLCONF = 'myproject.urls'
@@ -92,3 +93,11 @@ TEMPLATE_DIRS = (
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR,'static','staticroot')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'static','staticdirs'),
+)
+
+
