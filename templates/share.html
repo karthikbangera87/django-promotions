@@ -1,10 +1,77 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
+
+{% block jquery %}
+
+$signcount = 10
+
+if($signcount > 0 && $signcount < 5){
+	$percent = ($signcount/5)*100;
+	$("#bar1").css("width", $percent+"%").attr("aria-valuenow", $signcount ).text($percent + "%");
+}
+
+else if($signcount >= 5 && $signcount < 15) {
+	$("#bar1").css("width", "100%").attr("aria-valuenow", "5" ).text("Complete");
+	$newsigncount = $signcount - 5
+	$newpercent = ($newsigncount/(15-5))*100;
+	$("#bar2").css("width", $newpercent+"%").attr("aria-valuenow", $newsigncount ).text($newpercent + "%");
+
+}
+
+{% endblock %}
+
 
 {% block content %}
+<div class="jumbotron">
+    <div class="container">
+          <div class = "col-md-6 pull-right">
+          <h1>Hello, world!</h1>
+          <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+          </div>
+          <div class = "col-md-6 pull-left">
+            <img src= "{% static 'img/landing.png' %}" class = 'img-responsive' />
+          </div>
+    </div>
+</div>
 
-{{ref_id}}<br/>
-{{count}}<br/>
-{{url}}<br/>
+<div class = "container">
+	<div class = "row">
+		<h4>The no.of people who have been invited : {{count}} </h4>
+	</div>
+</div>
+<br/>
+<br/>
+
+<div class = "container">
+	<div class = "row">
+		<div class = "col-sm-4">
+			<h3> 5 people joined </h3>
+			<div class="progress">
+  				<div class="progress-bar" id = "bar1" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="5" style="width: 60%;">
+   				 60%
+  				</div>
+			</div>
+		</div>
+		<div class = "col-sm-4">
+			<h3> 15 people joined </h3>
+			<div class="progress">
+  				<div class="progress-bar" id = "bar2"role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="15" style="width: 60%;">
+   				 60%
+  				</div>
+			</div>
+		</div>
+		<div class = "col-sm-4">
+			<h3> 25 people joined </h3>
+			<div class="progress">
+  				<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="25" style="width: 60%;">
+   				 60%
+  				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 {% endblock %}

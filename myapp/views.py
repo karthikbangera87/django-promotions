@@ -70,7 +70,7 @@ def home(request):
 			new_join_old.ip_address = get_ip(request)
 			new_join_old.save()
 
-		print myapp.objects.filter(friend=obj)
+		#print myapp.objects.filter(friend=obj)
 		#print obj.referral.all().count()
 		return HttpResponseRedirect("/%s" %(new_join_old.ref_id))
 
