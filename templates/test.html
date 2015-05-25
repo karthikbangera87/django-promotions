@@ -27,8 +27,14 @@
     <div class="alert alert-danger" role="alert">Your Email is required</div>
     {% endfor %}
     {% endif %}
-
-<input type = "submit" value = "join" class = "btn" />
-</form>
+     
+          <div class="input-group">
+        <input class='form-control' type="email" name="email" placeholder="Your email..." />
+            <span class='input-group-btn'>
+          <input type='submit' value='Join' class='btn btn-primary btn-lg' />
+          </span>
+        </div>
+    </div>
+  </form>
 </div>
 {% endblock %}
