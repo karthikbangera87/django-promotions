@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-mproject/settings/local.py
+myproject/settings/local.py
 
 # C extensions
 *.so
