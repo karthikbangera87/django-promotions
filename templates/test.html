@@ -19,9 +19,14 @@
 <div class="container">
 <p>Hello World </p>
 
-<form method = "POST" action="">{% csrf_token %}
-
-{{form.as_p}}
+<form class='form-horizontal' method="POST" action=""> {% csrf_token %}
+    <div class='form-group form-group-lg'>
+    {% if form.email.errors %}
+     {% for err in form.email.errors %}
+     <div class="alert alert-danger" role="alert">{{ err }}</div>
+    <div class="alert alert-danger" role="alert">Your Email is required</div>
+    {% endfor %}
+    {% endif %}
 
 <input type = "submit" value = "join" class = "btn" />
 </form>
